@@ -1,0 +1,16 @@
+{
+    "metadata": {
+      "title": "Background and Motivation",
+      "author": "Anonymous",
+      "creationDate": "2025-02-20",
+      "modDate": "2025-02-20",
+      "source": "Generated JSON Document",
+      "keywords": ["AI", "LLM", "Telecommunications", "3GPP", "RAG"],
+      "format": "JSON 1.0",
+      "description": "A discussion on the challenges and solutions of integrating LLMs in telecommunications."
+    },
+    "content": {
+      "section": "1.2 Background and Motivation",
+      "text": "Today, AI has reached unprecedented capabilities and is still expanding its\nhorizons. As building such intelligent systems integrated with a Large Language\nModel (LLM) requires substantial computing power and heavy resource\ndependency, they often incur high costs that are not feasible for small\nand mid-sized organizations [Tho+22]. Thus, using pre-trained open source\nmodels offers a viable alternative. One of the biggest challenges is ensuring\nthe relevance of the intelligence of the model to the specific industry. For example,\na law firm would require an LLM that understands natural language\nand has up-to-date knowledge of the legal domain, otherwise it would not\nproduce expected results.\n\nTo solve this problem, one approach could be to train our model on\ndomain-specific knowledge. However, this introduces two new obstacles:\n1) Training a model is expensive as it requires a large number of GPUs and\nsignificant computing resources, 2) Even if we train the LLM with the most\nrecent data, new data will continue to come in and we won’t be able to retrain\nthe model for every new piece of information. Retrieval Augmented\nGeneration (RAG) [Lew+21] is a popular approach to bring domain-specific\nknowledge to the LLM. This is the topic of my thesis, and the domain\nI have decided to address is telecommunications. Telecommunication specifications\nare often very technical and detailed. In order to find particular\nspecifications from standards like the 3rd Generation Partnership Project\n(3GPP), one might need to read multiple documents to form a conclusion.\nThis is where LLMs come into the picture.\n\nLLMs can be very useful as they can read and understand vast amounts of\ndata in seconds. As part of the thesis I built a NGNI 3GPP chat bot that takes\na user query, searches through 3GPP documents, retrieves relevant chunks,\nand brings them back to the LLM. This retrieved piece of information can\nbe further modified based on defined prompt engineering, to answer the user\nquery ultimately providing a response. The telecommunication community\ncan benefit immensely from this NGNI 3GPP chat bot as it saves significant\ntime and effort in analyzing documents."
+    }
+  }

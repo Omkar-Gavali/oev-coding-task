@@ -1,5 +1,6 @@
 import os
-from langchain.chat_models import ChatGroq
+
+from langchain_groq import ChatGroq
 
 # Initialize LLM
 def get_llm():
