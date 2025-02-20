@@ -4,10 +4,13 @@
 ## Overview
 This project implements a **Retrieve-and-Generate (RAG) system** that utilizes a **Language Model (LLM), a vector database (ChromaDB), and FastAPI** to answer queries based on a given document. The system relies **only on the provided document** (not the LLM's built-in knowledge) and retrieves relevant information from a **PDF file (`test.pdf`) and a JSON file (`test.json`).**
 
-![System Overview](image.png)
+
 
 ✅ **The system answers only from the provided documents and does not use external knowledge.**  
+![System Overview](image1.png)
+
 ✅ **The response format strictly follows the requested JSON structure.** 
+![System Overview](image.png)
 
 ## Features
 ✅ Automatically ingests data from `test.pdf` and `test.json`  
