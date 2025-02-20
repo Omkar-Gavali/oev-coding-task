@@ -20,22 +20,26 @@ qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever, chain_type=
 
 @app.get("/query")
 def query(question: str = Query(..., description="Your question here")):
-    retrieved_docs = retriever.get_relevant_documents(question)  # Retrieve relevant chunks
+    retrieved_docs = retriever.get_relevant_documents(question)
 
     if not retrieved_docs:
         return {"answer": "No relevant information found."}
 
-    # Extract page numbers
     sources = set()
+    additional_metadata = set()
+
     for doc in retrieved_docs:
         if "page" in doc.metadata:
             sources.add(f"Page {doc.metadata['page']}")
+        if "file_name" in doc.metadata:
+            additional_metadata.add(f"File: {doc.metadata['file_name']}")  # Add file name
 
-    response = qa_chain.run(question)  # Get the answer from the LLM
+    response = qa_chain.run(question)
 
     return {
         "answer": response,
-        "sources": list(sources)  # Return unique page numbers
+        "sources": list(sources),
+        "additional_metadata": list(additional_metadata)  # Include file name
     }
 
 if __name__ == "__main__":

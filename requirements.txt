@@ -1,0 +1,12 @@
+langchain-groq
+fastapi
+uvicorn
+langchain
+chromadb
+sentence-transformers
+PyMuPDF
+huggingface-hub
+pydantic
+numpy
+tqdm
+nltk
