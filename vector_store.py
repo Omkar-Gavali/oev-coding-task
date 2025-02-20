@@ -6,6 +6,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 import json
 import os
 
+
 # Set up embeddings using Hugging Face
 def get_embeddings():
     return HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
@@ -13,7 +14,7 @@ def get_embeddings():
 # Initialize Vector Store
 def init_vector_store(persist_directory="./db"):
     embeddings = get_embeddings()
-    return Chroma(collection_name="test_store", embedding_function=embeddings, persist_directory=persist_directory)
+    return Chroma(collection_name="test_stores", embedding_function=embeddings, persist_directory=persist_directory)
 
 # Load PDF and extract text
 def process_pdf(pdf_path):
