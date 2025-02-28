@@ -43,3 +43,13 @@ source venv/bin/activate  # On Windows use 'venv\Scripts\activate'
 
 # Install dependencies
 pip install -r requirements.txt
+
+
+## API Usage
+
+### **Query API**
+Retrieve answers based on `test.pdf` and `test.json`.
+
+#### **Request**
+```sh
+curl -X 'GET' 'http://127.0.0.1:8000/query?question=What is in the document?' -H 'accept: application/json'
