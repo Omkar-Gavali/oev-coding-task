@@ -1,4 +1,5 @@
 langchain-groq
+langchain-community
 fastapi
 uvicorn
 langchain

@@ -78,9 +78,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ### **3️⃣ Query the API**
 #### Example Request:
 ```sh
-curl -X 'GET' \
-  'http://localhost:8000/query?question=What is AI?' \
-  -H 'accept: application/json'
+curl "http://localhost:8000/query?question=What is block chain?"
 ```
 
 #### Example Response:
