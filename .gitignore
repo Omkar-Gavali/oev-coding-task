@@ -1,3 +1,9 @@
+# Ignore environment file
 .env
+
+# Ignore Python bytecode files and cache directories
 __pycache__/
+*.py[cod]
+
+# Ignore db directory
 db/
