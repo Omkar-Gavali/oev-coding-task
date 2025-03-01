@@ -1,12 +1,12 @@
 from fastapi import FastAPI, Query
-from vector_store import init_vector_store
+from vector_store import init_vector_store, ingest_data
 from llm import get_llm
 from langchain.chains import RetrievalQA
 import asyncio
 from config import HOST, PORT
 
 app = FastAPI()
-
+vector_db = ingest_data()
 # Load vector store
 vector_db = init_vector_store()
 retriever = vector_db.as_retriever()

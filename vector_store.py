@@ -70,7 +70,7 @@ def ingest_data():
     all_docs = pdf_docs + json_docs
 
     if not all_docs:
-        logging.warning("⚠️ No documents found! Check file paths.")
+        logging.warning(" No documents found! Check file paths.")
         return vector_db
 
     split_docs = split_documents(all_docs)
