@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query
-from vector_store import init_vector_store, ingest_data
-from llm import get_llm
+from modules.vector_store import init_vector_store, ingest_data
+from modules.llm import get_llm
 from langchain.chains import RetrievalQA
 import asyncio
 from config import HOST, PORT

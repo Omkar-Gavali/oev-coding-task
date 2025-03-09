@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # General Settings
-PDF_PATH = os.getenv("PDF_PATH", "test.pdf")
-JSON_PATH = os.getenv("JSON_PATH", "test.json")
+PDF_PATH = os.getenv("PDF_PATH", "./data/test.pdf")
+JSON_PATH = os.getenv("JSON_PATH", "./data/test.json")
 PERSIST_DIRECTORY = os.getenv("PERSIST_DIRECTORY", "./db")
 
 # API Keys

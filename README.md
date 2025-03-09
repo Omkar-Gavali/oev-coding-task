@@ -1,12 +1,7 @@
 # RAG-based System with FastAPI, LangChain, and ChromaDB
 
-<<<<<<< HEAD
 ## Overview
 This project implements a **Retrieval Augmented Generation (RAG) system** that utilizes a **Language Model (LLM), a vector database (ChromaDB), and FastAPI** to answer queries based on a given document. The system relies **only on the provided document** (not the LLM's built-in knowledge) and retrieves relevant information from a **PDF file (`test.pdf`) and a JSON file (`test.json`).**
-=======
-## 📌 Overview
-This project implements a **Retrieve-and-Generate (RAG) system** that utilizes a **Language Model (LLM), a vector database (ChromaDB), and FastAPI** to answer queries based on provided documents. The system relies **only on the provided document** (not the LLM's built-in knowledge) and retrieves relevant information from **PDF (`test.pdf`) and JSON (`test.json`) files**.
->>>>>>> a9894a83a03d8c5bc157667ec3e6bd596cf0ab08
 
 ✅ **Retrieves information only from provided documents**  
 ✅ **Uses FastAPI to serve an API for querying**  
