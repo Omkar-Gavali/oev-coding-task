@@ -1,7 +1,7 @@
-import os
-
 from langchain_groq import ChatGroq
+from config import GROQ_API_KEY
 
-# Initialize LLM
 def get_llm():
-    return ChatGroq(api_key=os.getenv("GROQ_API_KEY"))
+    if not GROQ_API_KEY:
+        raise ValueError(" Error: GROQ_API_KEY is missing! Set it in the .env file.")
+    return ChatGroq(api_key=GROQ_API_KEY)

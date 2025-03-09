@@ -1,45 +1,138 @@
-# oev-coding-task
-# Retrieve-and-Generate (RAG) System
+# RAG-based System with FastAPI, LangChain, and ChromaDB
 
+<<<<<<< HEAD
 ## Overview
 This project implements a **Retrieval Augmented Generation (RAG) system** that utilizes a **Language Model (LLM), a vector database (ChromaDB), and FastAPI** to answer queries based on a given document. The system relies **only on the provided document** (not the LLM's built-in knowledge) and retrieves relevant information from a **PDF file (`test.pdf`) and a JSON file (`test.json`).**
+=======
+## 📌 Overview
+This project implements a **Retrieve-and-Generate (RAG) system** that utilizes a **Language Model (LLM), a vector database (ChromaDB), and FastAPI** to answer queries based on provided documents. The system relies **only on the provided document** (not the LLM's built-in knowledge) and retrieves relevant information from **PDF (`test.pdf`) and JSON (`test.json`) files**.
+>>>>>>> a9894a83a03d8c5bc157667ec3e6bd596cf0ab08
 
+✅ **Retrieves information only from provided documents**  
+✅ **Uses FastAPI to serve an API for querying**  
+✅ **Stores and retrieves data using ChromaDB**  
+✅ **Uses Hugging Face sentence embeddings**  
 
+---
 
-✅ **The system answers only from the provided documents and does not use external knowledge.**  
-![System Overview](image1.png)
-
-✅ **The response format strictly follows the requested JSON structure.** 
-![System Overview](image.png)
-
-## Features
-✅ Automatically ingests data from `test.pdf` and `test.json`  
-✅ Uses **Hugging Face embeddings** (`sentence-transformers/all-mpnet-base-v2`)  
-✅ Stores and retrieves data using **ChromaDB**  
-✅ Exposes a **REST API** via FastAPI for querying  
-✅ Splits documents into **manageable chunks** for efficient retrieval  
-✅ Returns answers with **relevant page numbers and metadata**  
-
-## Tech Stack
-- **Language Model**:  (integrated via Groq API)
+## 🛠️ Tech Stack
+- **Language Model**: Integrated via Groq API
 - **Embeddings**: `sentence-transformers/all-mpnet-base-v2`
 - **Vector Database**: ChromaDB
 - **API Framework**: FastAPI
 - **PDF Processing**: PyMuPDF
 - **JSON Parsing**: Python `json` module
-- **Environment**:Vs code (Python 3.12)
+- **Environment**: Python 3.12+, VS Code
 
-## Installation
-Ensure you have Python 3.12+ installed, then set up your environment:
+---
 
+## 🚀 Installation & Setup
+### **1️⃣ Clone the Repository**
 ```sh
-# Clone the repository
 git clone https://github.com/Omkar-Gavali/oev-coding-task.git
-cd your-repo
+cd oev-coding-task
+```
 
-# Create and activate virtual environment
+### **2️⃣ Create and Activate a Virtual Environment**
+```sh
 python -m venv venv
-source venv/bin/activate  # On Windows use 'venv\Scripts\activate'
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-# Install dependencies
+### **3️⃣ Install Dependencies**
+```sh
 pip install -r requirements.txt
+```
+
+### **4️⃣ Set Up Environment Variables**
+Create a `.env` file and add the following:
+```ini
+GROQ_API_KEY=your_api_key_here
+PERSIST_DIRECTORY=./db
+PDF_PATH=test.pdf
+JSON_PATH=test.json
+```
+
+---
+
+## 🏗️ How It Works
+1. **Data Ingestion**:
+   - Extracts text from `test.pdf` and `test.json`.
+   - Splits text into smaller chunks for better retrieval.
+   - Stores embeddings in **ChromaDB**.
+
+2. **Query Processing**:
+   - User sends a query via FastAPI.
+   - The retriever searches ChromaDB for relevant document chunks.
+   - The LLM generates an answer using retrieved data.
+
+---
+
+## 🚦 Running the Project
+
+### **1️⃣ Ingest Data into ChromaDB**
+```sh
+python ingest.py
+```
+
+### **2️⃣ Start FastAPI Server**
+```sh
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+### **3️⃣ Query the API**
+#### Example Request:
+```sh
+curl "http://localhost:8000/query?question=What is block chain?"
+```
+
+#### Example Response:
+```json
+{
+  "answer": "AI stands for Artificial Intelligence...",
+  "sources": ["Page 1"],
+  "additional_metadata": ["File: test.pdf"]
+}
+```
+
+---
+
+## 📝 API Endpoints
+| Method | Endpoint | Description |
+|--------|-------------|----------------|
+| `GET`  | `/query?question=...` | Query the system for an answer |
+
+---
+
+## 🐳 Running with Docker (Optional)
+1. **Build Docker Image**
+```sh
+docker build -t rag-system .
+```
+
+2. **Run Container**
+```sh
+docker run -p 8000:8000 rag-system
+```
+
+---
+
+## 🛠️ Troubleshooting
+**1️⃣ FastAPI Not Running?**  
+🔹 Ensure you have activated the virtual environment:  
+```sh
+source venv/bin/activate  # Windows: venv\Scripts\activate
+```
+🔹 Check if `uvicorn` is installed:
+```sh
+pip install uvicorn
+```
+
+**2️⃣ Getting API Key Errors?**  
+🔹 Make sure `.env` file is set up correctly and restart your terminal.
+
+**3️⃣ Vector Store Not Working?**  
+🔹 Delete the `./db` folder and re-run `python ingest.py`.
+
+---
+
