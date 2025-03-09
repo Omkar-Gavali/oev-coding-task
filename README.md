@@ -2,7 +2,7 @@
 # Retrieve-and-Generate (RAG) System
 
 ## Overview
-This project implements a **Retrieve-and-Generate (RAG) system** that utilizes a **Language Model (LLM), a vector database (ChromaDB), and FastAPI** to answer queries based on a given document. The system relies **only on the provided document** (not the LLM's built-in knowledge) and retrieves relevant information from a **PDF file (`test.pdf`) and a JSON file (`test.json`).**
+This project implements a **Retrieval Augmented Generation (RAG) system** that utilizes a **Language Model (LLM), a vector database (ChromaDB), and FastAPI** to answer queries based on a given document. The system relies **only on the provided document** (not the LLM's built-in knowledge) and retrieves relevant information from a **PDF file (`test.pdf`) and a JSON file (`test.json`).**
 
 
 
